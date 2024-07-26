@@ -4,7 +4,13 @@ import axios from 'axios'
 export const fetchStudents = createAsyncThunk("fetch/students", async () => {
   const response = await axios.get("https://06cae953-318f-4749-845b-a59b064b4f4b-00-33u2c47zy1ymn.pike.replit.dev/students")
 
-  return response
+  return response.data
+})
+
+export const addStudentAsync = createAsyncThunk("add/student", async (newStudent) => {
+  const response = await axios.post("https://06cae953-318f-4749-845b-a59b064b4f4b-00-33u2c47zy1ymn.pike.replit.dev/students", newStudent)
+  
+  console.log(response)
 })
 
 export const studentsSlice = createSlice({
@@ -27,7 +33,7 @@ export const studentsSlice = createSlice({
 
     builder.addCase(fetchStudents.rejected, (state, action) => {
       state.status = "error"
-      state.error = action.payload.error
+      state.error = action.error.message
     })
   }
 })
