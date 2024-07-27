@@ -14,7 +14,7 @@ const StudentForm = () => {
     setGender(e.target.value)
   }
 
-  const handleStudentForm = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     const newStudent = { name, age, grade, gender }
     dispatch(addStudentAsync(newStudent))
@@ -27,7 +27,7 @@ const StudentForm = () => {
       </header>
       <main className='container'>
         <h1 className='display-1 fw-normal pt-4 pb-2'>Add Student</h1>
-        <form onSubmit={handleStudentForm}>
+        <form onSubmit={handleSubmit}>
           <input className='form-control' onChange={(e) => setName(e.target.value)} placeholder='Name' type='text'/>
           <br/>
           <input className='form-control' onChange={(e) => setAge(e.target.value)} placeholder='Age' type='number'/>
