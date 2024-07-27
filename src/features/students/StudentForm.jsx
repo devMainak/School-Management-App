@@ -16,7 +16,7 @@ const StudentForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const newStudent = { name, age, grade, gender }
+    const newStudent = { name, age: parseFloat(age), grade, gender }
     dispatch(addStudentAsync(newStudent))
   }
   
