@@ -41,6 +41,10 @@ export const studentsSlice = createSlice({
   reducers: {
     setFilter: (state, action) => {
       state.filter = action.payload
+    },
+
+    setSortBy: (state, action) => {
+      state.sortBy = action.payload
     }
   },
   extraReducers: (builder) => {
@@ -73,6 +77,6 @@ export const studentsSlice = createSlice({
   }
 })
 
-export const { setFilter } = studentsSlice.actions
+export const { setFilter, setSortBy } = studentsSlice.actions
 
 export default studentsSlice.reducer

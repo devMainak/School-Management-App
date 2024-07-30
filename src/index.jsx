@@ -8,6 +8,7 @@ import App from './App'
 import StudentForm from './features/students/StudentForm'
 import StudentDetail from './features/students/StudentDetail'
 import ClassView from './features/class/ClassView'
+import SchoolView from './features/school/SchoolView'
 
 const router = createBrowserRouter([
 	{
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
 	{
 		element: <ClassView/>,
 		path: "/class"
+	},
+	{
+		element: <SchoolView/>,
+		path: "/school"
 	}
 ])
 
