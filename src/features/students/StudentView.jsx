@@ -24,7 +24,7 @@ const StudentView = () => {
         <h1 className="display-1 fw-semibold pt-4 pb-2">Student View</h1>
         <Link className="btn btn-warning"  to="/studentform">Add student</Link>
         <section>
-          {status === "loading" && <div className="spinner-border text-primary" role="status">
+          {status === "loading" && <div className="spinner-border text-primary mt-3" role="status">
             <span className="visually-hidden">Loading...</span>
           </div>}
           { error && <p>{error}</p>}

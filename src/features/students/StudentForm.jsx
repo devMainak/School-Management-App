@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { addStudentAsync, updateStudentAsync } from "./studentsSlice";
 import Navbar from "../../components/Navbar";
@@ -29,8 +29,15 @@ const StudentForm = () => {
       if (!studentData) {
         if (name && age && grade && gender) {
           const newStudent = { name, age: parseFloat(age), grade, gender };
-          dispatch(addStudentAsync(newStudent));
-          setAlert("Student added successfully.");
+        const resultAction = await  dispatch(addStudentAsync(newStudent))
+          if (addStudentAsync.fulfilled.match(resultAction))
+          {
+            // This block runs if the addStudentAsync thunk was fulfilled successfully
+          setAlert("Student added successfully.")
+          } else {
+             // Handle the rejected case if needed
+            setAlert("Error occured while adding student!")
+          }
         } else {
           setAlert("Fill out all the details!");
         }
