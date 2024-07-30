@@ -13,16 +13,37 @@ export const addStudentAsync = createAsyncThunk("add/student", async (newStudent
   return response.data
 })
 
+
 export const updateStudentAsync = createAsyncThunk("update/student", async ({studentId, updatedData}) => {
   const response = await axios.put(`https://06cae953-318f-4749-845b-a59b064b4f4b-00-33u2c47zy1ymn.pike.replit.dev/students/${studentId}`, updatedData)
 
   return response.data
 })
 
+
+export const deleteStudentAsync = createAsyncThunk("delete/student", async (studentId) => {
+  const response = await axios.delete(`https://06cae953-318f-4749-845b-a59b064b4f4b-00-33u2c47zy1ymn.pike.replit.dev/students/${studentId}`)
+
+  return response.data
+})
+
+
+export const setFilter = () => {
+  
+}
+
+
+export const setSortBy = () => {
+  
+}
+
+
 export const studentsSlice = createSlice({
   name: "students",
   initialState: {
     students: [],
+    filter: "All",
+    sortBy: "name",
     status: "idle",
     error: null
   },
@@ -49,6 +70,10 @@ export const studentsSlice = createSlice({
     builder.addCase(updateStudentAsync.fulfilled, (state, action) => {
       const index = state.students.findIndex(student => student._id === action.payload._id)
       state.students[index] = action.payload
+    })
+
+    builder.addCase(deleteStudentAsync.fulfilled, (state, action) => {
+      state.students.filter(student => student._id !== action.payload._id)
     })
   }
 })

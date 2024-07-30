@@ -7,6 +7,7 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 import App from './App'
 import StudentForm from './features/students/StudentForm'
 import StudentDetail from './features/students/StudentDetail'
+import ClassView from './features/class/ClassView'
 
 const router = createBrowserRouter([
 	{
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
 	{
 		element: <StudentDetail/>,
 		path: "/studentdetail/:studentId"
+	},
+	{
+		element: <ClassView/>,
+		path: "/class"
 	}
 ])
 
