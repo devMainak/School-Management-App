@@ -13,6 +13,12 @@ export const addStudentAsync = createAsyncThunk("add/student", async (newStudent
   console.log(response)
 })
 
+export const updateStudentAsync = createAsyncThunk("update/student", async ({studentId, updatedData}) => {
+  const response = await axios.put(`https://06cae953-318f-4749-845b-a59b064b4f4b-00-33u2c47zy1ymn.pike.replit.dev/students/${studentId}`, updatedData)
+
+  return response.data
+})
+
 export const studentsSlice = createSlice({
   name: "students",
   initialState: {

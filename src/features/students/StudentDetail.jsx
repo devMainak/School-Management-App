@@ -24,8 +24,8 @@ const StudentDetail = () => {
           <p>Attendance: {studentData.attendance}</p>
           <p>Marks: {studentData.marks}</p>
         </section>
-        <Link className='btn btn-warning' to="/">Edit Details</Link>
-        <Link className='btn btn-danger mx-2' to="/">Delete</Link>
+        <Link className='btn btn-warning' to="/studentform" state={{studentData}}>Edit Details</Link>
+        <Link className='btn btn-danger mx-2'>Delete</Link>
       </main>
     </>
   )
