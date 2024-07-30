@@ -10,7 +10,7 @@ export const fetchStudents = createAsyncThunk("fetch/students", async () => {
 export const addStudentAsync = createAsyncThunk("add/student", async (newStudent) => {
   const response = await axios.post("https://06cae953-318f-4749-845b-a59b064b4f4b-00-33u2c47zy1ymn.pike.replit.dev/students", newStudent)
   
-  console.log(response)
+  return response.data
 })
 
 export const updateStudentAsync = createAsyncThunk("update/student", async ({studentId, updatedData}) => {
@@ -40,6 +40,15 @@ export const studentsSlice = createSlice({
     builder.addCase(fetchStudents.rejected, (state, action) => {
       state.status = "error"
       state.error = action.error.message
+    })
+
+    builder.addCase(addStudentAsync.fulfilled, (state, action) => {
+      state.students.push(action.payload)
+    })
+
+    builder.addCase(updateStudentAsync.fulfilled, (state, action) => {
+      const index = state.students.findIndex(student => student._id === action.payload._id)
+      state.students[index] = action.payload
     })
   }
 })

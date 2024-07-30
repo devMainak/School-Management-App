@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar"
 const StudentDetail = () => {
 
   const { students } = useSelector((state) => state.students)
-  const { studentId } = useParams('studentId')
+  const { studentId } = useParams()
 
   const studentData = students.find(student => student._id === studentId )
 

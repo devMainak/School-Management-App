@@ -48,10 +48,10 @@ const StudentForm = () => {
             updateStudentAsync({ studentId: studentData._id, updatedData }))
           if (updateStudentAsync.fulfilled.match(resultAction)) {
             // This block runs if the updateStudentAsync thunk was fulfilled successfully
-            setAlert("Student data updated successfully")
+            setAlert("Student data updated successfully.")
           } else {
             // Handle the rejected case if needed
-           setAlert("Some error occurred while updating student data.")
+           setAlert("Some error occurred while updating student data!")
           }
         } else {
           setAlert("Fill out all the details!");
