@@ -28,15 +28,6 @@ export const deleteStudentAsync = createAsyncThunk("delete/student", async (stud
 })
 
 
-export const setFilter = () => {
-  
-}
-
-
-export const setSortBy = () => {
-  
-}
-
 
 export const studentsSlice = createSlice({
   name: "students",
@@ -47,7 +38,11 @@ export const studentsSlice = createSlice({
     status: "idle",
     error: null
   },
-  reducers: {},
+  reducers: {
+    setFilter: (state, action) => {
+      state.filter = action.payload
+    }
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchStudents.pending, (state) => {
       state.status = "loading"
@@ -77,5 +72,7 @@ export const studentsSlice = createSlice({
     })
   }
 })
+
+export const { setFilter } = studentsSlice.actions
 
 export default studentsSlice.reducer
