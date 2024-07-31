@@ -54,6 +54,7 @@ const TeacherForm = () => {
         </div>
         <label>Subject: </label>
         <select onChange={(e) => setSubject(e.target.value)} className="form-select mb-3">
+          <option value="">Choose Subject</option>
           <option value="English">English</option>
           <option value="Math">Math</option>
           <option value="Physics">Physics</option>
