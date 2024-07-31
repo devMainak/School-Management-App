@@ -34,9 +34,9 @@ const SchoolView = () => {
       <main className="container">
         <h3 className="display-3 fw-semibold pt-4 ">School View</h3>
         <p className="fs-5 fw-normal">Total Students: {totalStudents}</p>
-        <p className="fs-5 fw-normal">Average Attendance: {averageAttendance}</p>
-        <p className="fs-5 fw-normal">Average Marks: {averageMarks}</p>
-        <p className="fs-5 fw-normal">Top Student: {topStudent.name}</p>
+        <p className="fs-5 fw-normal">Average Attendance: {averageAttendance.toFixed(2)}</p>
+        <p className="fs-5 fw-normal">Average Marks: {averageMarks.toFixed(2)}</p>
+        {topStudent && <p className="fs-5 fw-normal">Top Student: {topStudent.name}</p>}
       </main>
     </>
   )
