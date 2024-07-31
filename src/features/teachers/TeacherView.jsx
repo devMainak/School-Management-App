@@ -9,7 +9,7 @@ const TeacherView = () => {
       </header>
       <main className='container'>
         <h3 className='display-3 fw-semibold pt-4 pb-2'>Teacher View</h3>
-        <Link className='btn btn-warning'>Add Teacher</Link>
+        <Link className='btn btn-warning' to="/teacherform">Add Teacher</Link>
         <section>
         
         </section>

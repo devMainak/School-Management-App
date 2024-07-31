@@ -68,7 +68,7 @@ const StudentForm = () => {
         <Navbar />
       </header>
       <main className="container">
-        <h1 className="display-1 fw-normal pt-4 pb-2">Add Student</h1>
+        <h1 className="display-1 fw-normal pt-4 pb-2">{studentData ? "Update" : "Add"} Student</h1>
         <form onSubmit={handleSubmit}>
           <input
             className="form-control"
