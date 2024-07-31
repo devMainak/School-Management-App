@@ -72,7 +72,7 @@ export const studentsSlice = createSlice({
     })
 
     builder.addCase(deleteStudentAsync.fulfilled, (state, action) => {
-      state.students.filter(student => student._id !== action.payload._id)
+    state.students =  state.students.filter(student => student._id !== action.payload._id)
     })
   }
 })
