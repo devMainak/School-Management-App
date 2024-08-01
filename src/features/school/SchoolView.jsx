@@ -5,9 +5,6 @@ import Navbar from "../../components/Navbar"
 
 const SchoolView = () => {
   const dispatch = useDispatch()
-  const { students } = useSelector(state => state.students)
-  const { teachers } = useSelector(state => state.teachers)
-  const { totalStudents, totalTeachers, averageAttendance, averageMarks, topStudent } = useSelector(state => state.school)
   
   useEffect(() => {
     const totalStudents = students.length
@@ -20,11 +17,14 @@ const SchoolView = () => {
       }
       return acc
     }, students[0])
-
+    
     dispatch(updateSchoolStats({totalStudents, totalTeachers, averageAttendance, averageMarks}))
     dispatch(setTopStudent(topStudent))
   }, [])
-  
+
+  const { students } = useSelector(state => state.students)
+  const { teachers } = useSelector(state => state.teachers)
+  const { totalStudents, totalTeachers, averageAttendance, averageMarks, topStudent } = useSelector(state => state.school)
 
   
   

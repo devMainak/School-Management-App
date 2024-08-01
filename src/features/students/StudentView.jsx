@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from "react-router-dom"
 import { fetchStudents } from './studentsSlice'
+import { fetchTeachers } from '../teachers/teachersSlice'
 import Navbar from "../../components/Navbar"
 import StudentList from './StudentList'
 
@@ -12,6 +13,7 @@ const StudentView = () => {
   
   useEffect(() => {
     dispatch(fetchStudents())
+    dispatch(fetchTeachers())
   }, [])
 
   
